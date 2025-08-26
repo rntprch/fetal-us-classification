@@ -100,9 +100,9 @@ def get_class_names_from_dataset(dataset):
         if hasattr(dataset, 'class_names'):
             return dataset.class_names
         
-        # Check if dataset has annotations with class_eng column
-        if hasattr(dataset, 'annotations') and 'class_eng' in dataset.annotations.columns:
-            unique_classes = dataset.annotations.sort_values('class_int')['class_eng'].unique()
+        # Check if dataset has annotations with class column
+        if hasattr(dataset, 'annotations') and 'class' in dataset.annotations.columns:
+            unique_classes = dataset.annotations.sort_values('class_int')['class'].unique()
             return unique_classes.tolist()
         
         # Check if dataset has a method to get class names
