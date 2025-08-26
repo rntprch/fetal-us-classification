@@ -75,9 +75,11 @@ project_root/
    - **Static images**: Standard 2D DICOM files
    - **Video sequences**: 3D DICOM files (2D + time dimension)
 2. **Annotations CSV**: Create an annotation file with the following structure:
-   - `SOPInstanceUID` column: Must match DICOM filenames exactly
-   - `frame` column: Frame index for videos (`-1` for static images, `0-N` for specific video frames)
-   - Target class columns as specified in your configuration and numeric class label
+   - `SOPInstanceUID` **column**: Must match DICOM filenames exactly
+   - `split` **column**: Data split, e.g., 'train', 'val', or 'test'
+   - `class` **column**: Target class label
+   - `class_int` **column**: Target class numeric label
+   - `frame` **column**: Frame index for videos (`-1` for static images, `0-N` for specific video frames)
 3. **Configuration**: Update `CLASSES` variable in `config.py` with your target anatomical classes
 
 ### Annotation File Example
